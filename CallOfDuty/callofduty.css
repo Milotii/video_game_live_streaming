@@ -1,0 +1,136 @@
+body {
+    font-family: Helvetica;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  .site-header { 
+    border-bottom: 1px solid #ccc;
+    padding: .5em 1em;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .site-identity h1 {
+    font-size: 1.5em;
+    margin: .6em 0;
+    display: inline-block;
+  }
+  
+  
+  .site-navigation ul, 
+  .site-navigation li {
+    margin: 0; 
+    padding: 0;
+  }
+  
+  .site-navigation li {
+    display: inline-block;
+    margin: 1.4em 1em 1em 1em;
+  }
+  
+  input[type="button"] {
+    background-color: #311ac5;
+    color: #eee;
+    padding: 15px 25px;
+    border: none;
+    border-radius:10px; 
+    min-height:30px; 
+    min-width: 120px;
+  }
+  
+  input[type="button"]:hover {
+     background-color: #0ea7f4;
+  }
+  body{
+    background: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  .searchTerm:focus{
+    color: #000000;
+  }
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .wrap{
+    width: 30%;
+    position: absolute;
+    top: 4%;
+    left: 40%;
+    transform: translate(-20%, -20%);
+  }
+  #search-text-input{
+    border-top:thin solid  #00B4CC;
+    border-right:thin solid #00B4CC;
+    border-bottom:0;
+    border-left:thin solid  #00B4CC;
+    box-shadow:0px 1px 1px 1px #00B4CC;
+    float:left;
+    height:17px;
+    margin:.8em 0 0 .5em; 
+    outline:0;
+    padding:.4em 0 .4em .6em; 
+    width:183px; 
+  }
+   
+  #button-holder{
+    background-color:#00B4CC;
+    border-top:thin solid #00B4CC;
+    box-shadow:1px 1px 1px 1px #00B4CC;
+    cursor:pointer;
+    float:left;
+    height:27px;
+    margin:2px 0 0 0;
+    text-align:center;
+    width:25px;
+  }
+   
+  #button-holder img{
+    margin:0px;
+    width:25px; 
+  }
+  .content {
+    width: 490px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  .content img {
+    margin-right: 15px;
+    float: left;
+  }
+  
+  .content h3,
+  .content p{
+    margin-left: 15px;
+    display: block;
+    margin: 2px 0 0 0;
+  }
+    
