@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <title>Video Game Live Streaming</title>
-    <link rel="stylesheet" href="login.css">
-  </head>
-  <body>
-    <div class="center">
-      <h1>Login</h1>
-      <form method="post">
-        <div class="txt_field">
-          <input type="text" required>
-          <span></span>
-          <label>Username</label>
-        </div>
-        <div class="txt_field">
-          <input type="password" required>
-          <span></span>
-          <label>Password</label>
-        </div>
-        <div class="pass">Forgot Password?</div>
-        <input type="submit" value="Login">
-        <div class="signup_link">
-        Not a member? <a href="../register/register.html">Register</a>
-        </div>
-      </form>
-    </div>
 
-  </body>
+<head>
+  <title>Video Game Live Streaming</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="center">
+    <h1>Login</h1>
+    <form name="loginForm" class="loginForm" method="post" onsubmit="return validateForm()">
+      <div class="txt_field">
+        <label>Username</label>
+        <input type="text" name="username">
+      </div>
+
+      <span id="username"></span>
+      <br />   <br />
+      <div class="txt_field">
+        <label>Password</label>
+        <input type="password" name="password">
+      </div>
+
+      <span id="password"></span>
+   
+      <br />
+      <div class="pass">Forgot Password?</div>
+      <input type="submit" value="Login">
+      <div class="signup_link">
+        Not a member? <a href="../register/register.html">Register</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+
 </html>

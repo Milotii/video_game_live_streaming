@@ -27,13 +27,13 @@
     border-bottom: 1px solid silver;
   }
   .center form{
-    padding: 0 40px;
+    padding: 20px 40px;
     box-sizing: border-box;
   }
   form .txt_field{
     position: relative;
-    border-bottom: 2px solid #adadad;
-    margin: 30px 0;
+    border-bottom: 2px solid #2691d9;
+    margin-bottom: 10px;
   }
   .txt_field input{
     width: 100%;
@@ -45,10 +45,9 @@
     outline: none;
   }
   .txt_field label{
-    position: absolute;
+    position: relative;
     top: 50%;
-    left: 5px;
-    color: #adadad;
+    color: #2691d9;
     transform: translateY(-50%);
     font-size: 16px;
     pointer-events: none;
@@ -109,4 +108,8 @@
   }
   .signup_link a:hover{
     text-decoration: underline;
+  }
+  span {
+    color: red;
+    font-size: 14px;
   }
