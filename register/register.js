@@ -1,4 +1,4 @@
-function validateForm(){
+function validateForm() {
     let name = document.forms["registerForm"]["name"].value;
     let surname = document.forms["registerForm"]["surname"].value;
     let email = document.forms["registerForm"]["email"].value;
@@ -31,6 +31,17 @@ function validateForm(){
         isValid = false;
     }
 
+    if (!checkPassword(password)) {
+        document.getElementById("password").innerHTML =
+            `Password must contain at least: <br/><br/>
+                Minimum 6 characters <br/>
+                Maximum 20 characters <br/>
+                At least one digit <br/>
+                At least one special character
+            `;
+        isValid = false;
+    }
+
     if (confirmPassword == "") {
         document.getElementById("confirm-password").innerHTML = "Confirm password must be filled!";
         isValid = false;
@@ -44,18 +55,23 @@ function validateForm(){
     return isValid;
 }
 
-document.getElementsByName('name')[0].addEventListener('keydown', function(event) {
+function checkPassword(password) {
+    var regularExpression = /^(?=.*\d)(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{6,20}$/;
+    return regularExpression.test(password);
+}
+
+document.getElementsByName('name')[0].addEventListener('keydown', function (event) {
     document.getElementById("name").innerHTML = "";
 });
-document.getElementsByName('surname')[0].addEventListener('keydown', function(event) {
+document.getElementsByName('surname')[0].addEventListener('keydown', function (event) {
     document.getElementById("surname").innerHTML = "";
 });
-document.getElementsByName('email')[0].addEventListener('keydown', function(event) {
+document.getElementsByName('email')[0].addEventListener('keydown', function (event) {
     document.getElementById("email").innerHTML = "";
 });
-document.getElementsByName('password')[0].addEventListener('keydown', function(event) {
+document.getElementsByName('password')[0].addEventListener('keydown', function (event) {
     document.getElementById("password").innerHTML = "";
 });
-document.getElementsByName('confirm-password')[0].addEventListener('keydown', function(event) {
+document.getElementsByName('confirm-password')[0].addEventListener('keydown', function (event) {
     document.getElementById("confirm-password").innerHTML = "";
 });
