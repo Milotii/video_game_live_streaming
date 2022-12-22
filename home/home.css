@@ -79,7 +79,7 @@ div#slider {
 div#slider figure img {
   width: 10%;
   float: left;
-  height: 300px;
+  height: 450px;
   object-fit: cover;
 }
 

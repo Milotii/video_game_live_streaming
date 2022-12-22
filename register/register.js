@@ -26,11 +26,6 @@ function validateForm() {
         isValid = false;
     }
 
-    if (password.length < 6) {
-        document.getElementById("password").innerHTML = "Password must be at least 6 characters!";
-        isValid = false;
-    }
-
     if (!checkPassword(password)) {
         document.getElementById("password").innerHTML =
             `Password must contain at least: <br/><br/>
