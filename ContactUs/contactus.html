@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <title>Video Game Live Streaming</title>
-    <link rel="stylesheet" href="contactus.css">
-  </head>
-  <body>
-    <div class="center">
-      <h1>Contact Us</h1>
-      <form method="post">
-        <div class="txt_field">
-          <input type="text" required>
-          <span></span>
-          <label>Username</label>
-        </div>
-        <div class="txt_field">
-          <input type="name" required>
-          <span></span>
-          <label>Surname</label>
-        </div>
-        <div class="txt_field">
-            <input type="email" required>
-            <span></span>
-            <label>Email</label>
-          </div>
-          <div class="txt_field">
-            <input type="tel" required>
-            <span></span>
-            <label>Phone Number</label>
-          </div>
-          <textarea
-            name="textarea"
-            rows="5"
-            cols="46"
-            placeholder="Write a message"></textarea>
 
-        <br>
-        <br> <input type="submit" value="Send"> <br> <br>
-        <br>
-      </form>
-    </div>
+<head>
+  <title>Video Game Live Streaming</title>
+  <link rel="stylesheet" href="contactus.css">
+</head>
 
-  </body>
+<body>
+  <div class="center">
+    <h1>Contact Us</h1>
+    <form name="contactForm" method="post" onsubmit="return validateForm()">
+      <div class="txt_field">
+        <label>Username</label>
+        <input type="text" name="username">
+      </div>
+      <span id="username"></span>
+      <br />   <br />
+
+      <div class="txt_field">
+        <label>Surname</label>
+        <input type="name" name="surname">
+      </div>
+      <span id="surname"></span>
+      <br />   <br />
+
+      <div class="txt_field">
+        <label>Email</label>
+        <input type="email" name="email">
+      </div>
+      <span id="email"></span>
+      <br />   <br />
+
+      <div class="txt_field">
+        <label>Phone Number</label>
+        <input type="tel" name="tel">
+      </div>
+      <span id="tel"></span>
+      <br />   <br />
+
+      <textarea name="message" class="message" placeholder="Write a message"></textarea>
+      <span id="message"></span>
+
+      <br>
+      <br> <input type="submit" value="Send"> <br> <br>
+      <br>
+    </form>
+  </div>
+
+  <script src="contactus.js"></script>
+</body>
+
 </html>

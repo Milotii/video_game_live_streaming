@@ -26,8 +26,18 @@ function validateForm(){
         isValid = false;
     }
 
+    if (password.length < 6) {
+        document.getElementById("password").innerHTML = "Password must be at least 6 characters!";
+        isValid = false;
+    }
+
     if (confirmPassword == "") {
         document.getElementById("confirm-password").innerHTML = "Confirm password must be filled!";
+        isValid = false;
+    }
+
+    if (password !== confirmPassword) {
+        document.getElementById("confirm-password").innerHTML = "Passwords do not match!";
         isValid = false;
     }
 
