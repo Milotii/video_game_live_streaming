@@ -13,10 +13,10 @@
       <div class="wrapper">
         <div class="logo"></div>
       </div>
-      <a href="home.html"> <img src="logo4.jpg" style="width:33%; height: auto; max-width:125px;" /></a>
+      <a href="home.php"> <img src="logo4.jpg" style="width:33%; height: auto; max-width:125px;" /></a>
 
 
-      <h1><a href="home.html">epicStream</a></h1>
+      <h1><a href="home.php">epicStream</a></h1>
     </div>
     <nav class="site-navigation">
       <ul class="nav">
