@@ -1,18 +1,12 @@
 function validateForm() {
-    let name = document.forms["registerForm"]["name"].value;
-    let surname = document.forms["registerForm"]["surname"].value;
+    let username = document.forms["registerForm"]["username"].value;
     let email = document.forms["registerForm"]["email"].value;
-    let password = document.forms["registerForm"]["password"].value;
-    let confirmPassword = document.forms["registerForm"]["confirm-password"].value;
+    let password = document.forms["registerForm"]["password_1"].value;
+    let confirmPassword = document.forms["registerForm"]["password_2"].value;
     var isValid = true;
 
-    if (name == "") {
-        document.getElementById("name").innerHTML = "Name must be filled!";
-        isValid = false;
-    }
-
-    if (surname == "") {
-        document.getElementById("surname").innerHTML = "Surname must be filled!";
+    if (username == "") {
+        document.getElementById("username").innerHTML = "Username must be filled!";
         isValid = false;
     }
 
@@ -22,12 +16,12 @@ function validateForm() {
     }
 
     if (password == "") {
-        document.getElementById("password").innerHTML = "Password must be filled!";
+        document.getElementById("password_1").innerHTML = "Password must be filled!";
         isValid = false;
     }
 
     if (!checkPassword(password)) {
-        document.getElementById("password").innerHTML =
+        document.getElementById("password_1").innerHTML =
             `Password must contain at least: <br/><br/>
                 Minimum 6 characters <br/>
                 Maximum 20 characters <br/>
@@ -38,12 +32,12 @@ function validateForm() {
     }
 
     if (confirmPassword == "") {
-        document.getElementById("confirm-password").innerHTML = "Confirm password must be filled!";
+        document.getElementById("password_2").innerHTML = "Confirm password must be filled!";
         isValid = false;
     }
 
     if (password !== confirmPassword) {
-        document.getElementById("confirm-password").innerHTML = "Passwords do not match!";
+        document.getElementById("password_2").innerHTML = "Passwords do not match!";
         isValid = false;
     }
 
@@ -55,18 +49,16 @@ function checkPassword(password) {
     return regularExpression.test(password);
 }
 
-document.getElementsByName('name')[0].addEventListener('keydown', function (event) {
-    document.getElementById("name").innerHTML = "";
+document.getElementsByName('username')[0].addEventListener('keydown', function (event) {
+    document.getElementById("username").innerHTML = "";
 });
-document.getElementsByName('surname')[0].addEventListener('keydown', function (event) {
-    document.getElementById("surname").innerHTML = "";
-});
+
 document.getElementsByName('email')[0].addEventListener('keydown', function (event) {
     document.getElementById("email").innerHTML = "";
 });
-document.getElementsByName('password')[0].addEventListener('keydown', function (event) {
-    document.getElementById("password").innerHTML = "";
+document.getElementsByName('password_1')[0].addEventListener('keydown', function (event) {
+    document.getElementById("password_1").innerHTML = "";
 });
-document.getElementsByName('confirm-password')[0].addEventListener('keydown', function (event) {
-    document.getElementById("confirm-password").innerHTML = "";
+document.getElementsByName('password_2')[0].addEventListener('keydown', function (event) {
+    document.getElementById("password_2").innerHTML = "";
 });

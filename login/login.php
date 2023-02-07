@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <html lang="en" dir="ltr">
@@ -10,7 +11,9 @@
 <body>
   <div class="center">
     <h1>Login</h1>
-    <form name="loginForm" class="loginForm" method="post" onsubmit="return validateForm()">
+    <form name="loginForm" class="loginForm" method="post" onsubmit="return validateForm()" action="login.php">
+    <?php include('errors.php'); ?>
+    
       <div class="txt_field">
         <label>Username</label>
         <input type="text" name="username">
@@ -26,10 +29,13 @@
       <span id="password"></span>
    
       <br />
-      <div class="pass">Forgot Password?</div>
-      <input type="submit" value="Login">
+
+      <input type="submit" class="btn" name="login_user" value="Login">
+
+
+  
       <div class="signup_link">
-        Not a member? <a href="../register/register.html">Register</a>
+        Not a member? <a href="../register/register.php">Register</a>
       </div>
     </form>
   </div>

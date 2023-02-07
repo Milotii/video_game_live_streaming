@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <a href="../login/login.html" class="log-in">Log In</a>
+    <a href="../login/login.php" class="log-in">Log In</a>
 
   </header>
   <div id="slider">

@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <html lang="en" dir="ltr">
@@ -10,27 +11,20 @@
 <body>
   <div class="center">
     <h1>Register</h1>
-    <form name="registerForm" method="post" onsubmit="return validateForm()">
+    <form name="registerForm" method="post" onsubmit="return validateForm()" action="register.php">
+    <?php include('errors.php'); ?>
 
       <div class="txt_field">
-        <label>Name</label>
-        <input type="text" name="name">
+        <label>Username</label>
+        <input type="text" name="username" value="<?php echo $username; ?>">
       </div>
 
-      <span id="name"></span>
-
-      <br />   <br />
-      <div class="txt_field">
-        <label>Surname</label>
-        <input type="text" name="surname">
-      </div>
-
-      <span id="surname"></span>
+      <span id="username"></span>
 
       <br />   <br />
       <div class="txt_field">
         <label>Email</label>
-        <input type="email" name="email">
+        <input type="email" name="email" value="<?php echo $email; ?>">
       </div>
 
       <span id="email"></span>
@@ -38,24 +32,24 @@
       <br />   <br />
       <div class="txt_field">
         <label>Password</label>
-        <input type="password" name="password">
+        <input type="password" name="password_1">
       </div>
 
-      <span id="password"></span>
+      <span id="password_1"></span>
 
       <br />   <br />
       <div class="txt_field">
         <label>Confirm Password</label>
-        <input type="password" name="confirm-password">
+        <input type="password" name="password_2">
       </div>
 
-      <span id="confirm-password"></span>
+      <span id="password_2"></span>
 
       <br />   <br />
-      <input type="submit" value="Register">
+      <input type="submit" class="btn" name="reg_user" value="Register">
 
       <div class="signup_link">
-        Already have an account? <a href="../login/login.html">Log In</a>
+        Already have an account? <a href="../login/login.php">Log In</a>
       </div>
 
       
