@@ -17,13 +17,13 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="../dashboard/dashboard.html">
+          <a href="../dashboard/dashboard.php">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="../AddGame/AddGame.html" class="active" >
+          <a href="../AddGame/AddGame.php" class="active" >
             <i class='bx bx-box' ></i>
             <span class="links_name">Add Game Category</span>
           </a>

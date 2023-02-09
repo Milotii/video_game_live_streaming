@@ -23,7 +23,7 @@
           </a>
         </li>
         <li>
-          <a href="../AddGame/AddGame.html">
+          <a href="../AddGame/AddGame.php">
             <i class='bx bx-box' ></i>
             <span class="links_name">Add Game Category</span>
           </a>
@@ -54,17 +54,24 @@
         
       </div>
     </nav>
-
     <div class="home-content">
       <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Users</div>
-            <div class="number">2</div>
-            
-          </div>
-          <i class='bx bx-user cart four'></i>
-        </div>
+      <div class="box" >
+  <div class="right-side">
+    <div class="box-topic">Total Users</div>
+    <div class="number">
+      <?php
+        $conn = mysqli_connect("localhost", "root", "", "videogamelivestreaming_db");
+        $sql = "SELECT COUNT(*) as total_users FROM users";
+        $result = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_assoc($result);
+        echo $data['total_users'];
+      ?>
+    </div>
+  </div>
+  <i class='bx bx-user cart four'></i>
+</div>
+
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Game Categories</div>
@@ -89,28 +96,42 @@
       </div>
 
       <div class="users-boxes">
-        <div class="recent-users box">
-          <div class="title">Recent Users</div>
-          <div class="sales-details">
-            <ul class="details">
-              <li class="topic">Date</li>
-              <li><a href="#">14 Jan 2023</a></li>
-              <li><a href="#">14 Jan 2023</a></li>
-            </ul>
-            <ul class="details">
-            <li class="topic">User</li>
-            <li><a href="#">Fisnik Ibishi</a></li>
-            <li><a href="#">Milot Hoti</a></li>
-
-          </ul>
-          <ul class="details">
-            <li class="topic">Email</li>
-            <li><a href="#">milot@gmail.com</a></li>
-            <li><a href="#">fisnik@gmail.com</a></li>
-          </ul>
-          </div>
+  <div class="recent-users box">
+    <div class="title">Recent Users</div>
+    <div class="sales-details">
+      <ul class="details">
+        <li class="topic">id</li>
+        <?php
+          $conn = mysqli_connect("localhost", "root", "", "videogamelivestreaming_db");
+          $sql = "SELECT id, username, email FROM users ORDER BY id DESC LIMIT 6";
+          $result = mysqli_query($conn, $sql);
+          while ($data = mysqli_fetch_assoc($result)) {
+            echo "<li><a href='#'>" . $data['id'] . "</a></li>";
+          }
+        ?>
+      </ul>
+      <ul class="details">
+        <li class="topic">User</li>
+        <?php
+          $result = mysqli_query($conn, $sql);
+          while ($data = mysqli_fetch_assoc($result)) {
+            echo "<li><a href='#'>" . $data['username'] . "</a></li>";
+          }
+        ?>
+      </ul>
+      <ul class="details">
+        <li class="topic">Email</li>
+        <?php
+          $result = mysqli_query($conn, $sql);
+          while ($data = mysqli_fetch_assoc($result)) {
+            echo "<li><a href='#'>" . $data['email'] . "</a></li>";
+          }
+        ?>
+      </ul>
+    </div>
+    <br>
           <div class="button">
-            <a href="#">See All</a>
+            <a href="users.php">See All</a>
           </div>
         </div>
         <div class="top-viewed box">
