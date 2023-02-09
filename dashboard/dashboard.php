@@ -80,12 +80,33 @@
           <i class='bx bx-category cart two' ></i>
         </div>
         <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Messages</div>
-            <div class="number">0</div>
-          </div>
-          <i class='bx bx-message cart three' ></i>
-        </div>
+  <div class="right-side">
+    <div class="box-topic">Messages</div>
+    <div class="number">
+      <?php
+        $server="localhost";
+        $username="root";
+        $password="";
+        $database="videogamelivestreaming_db";
+
+        try{
+          $con = new PDO("mysql:host=$server;dbname=$database;",$username,$password);
+          $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+          echo "";
+          $query = "SELECT COUNT(*) FROM contact_us";
+          $stmt = $con->prepare($query);
+          $stmt->execute();
+          $count = $stmt->fetchColumn();
+          echo $count;
+        }catch(PDOException $e){
+          echo "Connection Failed ".$e->getMessage();
+        }
+      ?>
+    </div>
+  </div>
+  <i class='bx bx-message cart three' ></i>
+</div>
+
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Today New Users</div>
@@ -100,7 +121,7 @@
     <div class="title">Recent Users</div>
     <div class="sales-details">
       <ul class="details">
-        <li class="topic">id</li>
+        <li class="topic">ID</li>
         <?php
           $conn = mysqli_connect("localhost", "root", "", "videogamelivestreaming_db");
           $sql = "SELECT id, username, email FROM users ORDER BY id DESC LIMIT 6";
@@ -111,7 +132,7 @@
         ?>
       </ul>
       <ul class="details">
-        <li class="topic">User</li>
+        <li class="topic">Username</li>
         <?php
           $result = mysqli_query($conn, $sql);
           while ($data = mysqli_fetch_assoc($result)) {
@@ -134,56 +155,45 @@
             <a href="users.php">See All</a>
           </div>
         </div>
-        <div class="top-viewed box">
-          <div class="title">Top Viewed Games</div>
-          <ul class="top-games-details">
-            <li>
-            <a href="#">
-              <!--<img src="images/sunglasses.jpg" alt="">-->
-              <span class="game">CS:GO</span>
-            </a>
-            <span class="price">48234 views</span>
-          </li>
-          <li>
-            <a href="#">
-               <!--<img src="images/jeans.jpg" alt="">-->
-              <span class="game">GTA 5 </span>
-            </a>
-            <span class="price">39986 views</span>
-          </li>
-          <li>
-            <a href="#">
-             <!-- <img src="images/nike.jpg" alt="">-->
-              <span class="game">Fifa</span>
-            </a>
-            <span class="price">37876 views</span>
-          </li>
-          <li>
-            <a href="#">
-              <!--<img src="images/scarves.jpg" alt="">-->
-              <span class="game">Call Of Duty</span>
-            </a>
-            <span class="price">27531 views</span>
-          </li>
-          <li>
-            <a href="#">
-              <!--<img src="images/blueBag.jpg" alt="">-->
-              <span class="game">Dota 2</span>
-            </a>
-            <span class="price">14421 views</span>
-          </li>
-          <li>
-            <a href="#">
-              <!--<img src="images/bag.jpg" alt="">-->
-              <span class="game">Fortnite</span>
-            </a>
-            <span class="price">13341 views</span>
+
+          <!----------------------------------------------------------------->
+          <div class="recent-users box">
           
-          </ul>
-        </div>
-        
+      
+    <div class="title"> Messages</div>
+
+    <div class="sales-details">
+      <ul class="details">
+        <li class="topic">DateTime </li>
+        <?php
+          $conn = mysqli_connect("localhost", "root", "", "videogamelivestreaming_db");
+          $sql = "SELECT date, username, email FROM contact_us ORDER BY id DESC LIMIT 6";
+          $result = mysqli_query($conn, $sql);
+          while ($data = mysqli_fetch_assoc($result)) {
+            echo "<li><a href='#'>" . $data['date'] . "</a></li>";
+          }
+        ?>
+      </ul>
+    </ul>
+    <ul class="details-column">
+      <li class="topic">Email</li>
+      <?php
+        $result = mysqli_query($conn, $sql);
+        while ($data = mysqli_fetch_assoc($result)) {
+          echo "<li><a href='#'>" . $data['email'] . "</a></li>";
+        }
+      ?>
+    </ul>
+  </div>
+  <br>
+  <div class="button">
+    <a href="messages.php">See All</a>
+  </div>
       </div>
-    </div>
+
+
+        
+     
   </section>
 
   <script>

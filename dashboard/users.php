@@ -47,7 +47,7 @@
         echo "Error: " . $e->getMessage();
       }
     ?>
-  </tbody>
+  
 
 </table>
 

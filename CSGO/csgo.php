@@ -1,3 +1,16 @@
+<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: ../login/login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: ../login/login.php");
+  }
+?>
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <html>
@@ -7,15 +20,16 @@
         <link rel="stylesheet" href="../css/shared.css">
     </head>
 
-    <body>  
+
         <body>
+
             <header class="site-header">
                 <div class="site-identity">
                   <div class="wrapper">
                     <div class="logo"></div>
                   </div>
                   <a href="../home/home.php" > <img src="logo4.jpg" style="width:33%; height: auto; max-width:125px;"/></a>
-                
+   
                
                   <h1><a href="../home/home.php">epicStream</a></h1>
                 </div>  
@@ -32,13 +46,33 @@
                     </div>
                        <i class="fa fa-search"></i>
                     </button>
+    
                   </div>
+            
                </div>
-               <a href="../login/login.html" class="log-in">Log In</a>
-                
+
+               <br>
+                	<!-- notification message -->
+  	<?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+      	<h3>
+          <?php 
+          	echo $_SESSION['success']; 
+          	unset($_SESSION['success']);
+          ?>
+      	</h3>
+      </div>
+  	<?php endif ?>
+    <!-- logged in user information -->
+    <?php  if (isset($_SESSION['username'])) : ?>
+    	<p> <strong><?php echo $_SESSION['username'];  ?></strong> <br>
+      <br> 
+    	<a href="../home/home.php?logout='1'" style="color: red;">Logout</a> </p>
+    <?php endif ?>
               </header>
               <br>
               <div class="content">
+                
                 <img src="csgo2.jpg" alt="" >
                 <h3>Counter-Strike: Global Offensive</h3>
                 <p>CS:GO është përsëritja e katërt e gjuajtjes moderne ushtarake në person të parë të bazuar

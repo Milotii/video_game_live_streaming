@@ -84,12 +84,12 @@
   <h3 id="categories">Categories</h3>
   <br>
   <div class="container">
-    <a href="../csgo/csgo.html"><img src="csgo-breaks-record-for-highest-player-count-all-time.jpg"></a>
-    <a href="../gta/gta.html"><img src="capsule_616x353 (1).jpg"></a>
-    <a href="../fortnite/fortnite.html"><img src="14br-consoles-1920x1080-wlogo-1920x1080-432974386.jpg"></a>
-    <a href="../CallOfDuty/callofduty.html"><img src="capsule_616x353 (2).jpg"></a>
-    <a href="../fifa/fifa.html"><img src="unnamed.png"></a>
-    <a href="../Dota2/dota2.html"><img src="dota2_social.jpg"></a>
+    <a href="../csgo/csgo.php"><img src="csgo-breaks-record-for-highest-player-count-all-time.jpg"></a>
+    <a href="../gta/gta.php"><img src="capsule_616x353 (1).jpg"></a>
+    <a href="../fortnite/fortnite.php"><img src="14br-consoles-1920x1080-wlogo-1920x1080-432974386.jpg"></a>
+    <a href="../CallOfDuty/callofduty.php"><img src="capsule_616x353 (2).jpg"></a>
+    <a href="../fifa/fifa.php"><img src="unnamed.png"></a>
+    <a href="../Dota2/dota2.php"><img src="dota2_social.jpg"></a>
   </div>
   </div>
   <br>
@@ -109,13 +109,13 @@
 
     <ul class="list">
       <li>
-        <a href="home.html">Home</a>
+        <a href="home.php">Home</a>
       </li>
       <li>
-        <a href="../AboutUs/aboutUs.html">About Us</a>
+        <a href="../AboutUs/aboutUs.php">About Us</a>
       </li>
       <li>
-        <a href="../ContactUs/contactus.html">Contact Us</a>
+        <a href="../ContactUs/contactus.php">Contact Us</a>
       </li>
     </ul>
   </section>
