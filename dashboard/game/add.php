@@ -14,19 +14,11 @@ try {
 
 // The target directory of uploading is uploads
 $target_dir = "../../images/";
-$image_name = guidv4() . "_" . basename($_FILES["files"]["name"]);
-$target_file = $target_dir . $image_name;
 $uOk = 1;
 
 if (isset($_POST["submit"])) {
   $name = $_POST['name'];
   $description = $_POST['description'];
-
-  // Check if file already exists
-  if (file_exists($target_file)) {
-    echo "file already exists.<br>";
-    $uOk = 0;
-  }
 
   // Check if $uOk is set to 0 
   if ($uOk == 0) {
@@ -36,17 +28,18 @@ if (isset($_POST["submit"])) {
   // if uOk=1 then try to upload file
   else {
     if (strlen($_FILES['files']['name']) > 1) {
+      $image_name = guidv4() . "_" . basename($_FILES["files"]["name"]);
+      $target_file = $target_dir . $image_name;
       if (move_uploaded_file($_FILES['files']['tmp_name'], $target_file)) {
         // Insert data into the categories table
         try {
           // Prepare the SQL statement
-          $stmt = $con->prepare("INSERT INTO categories (name, description, image, video) VALUES (:name, :description, :image, :video)");
+          $stmt = $con->prepare("INSERT INTO categories (name, description, image) VALUES (:name, :description, :image)");
 
           // Bind the values to the placeholders in the SQL statement
           $stmt->bindValue(':name', $name, PDO::PARAM_STR);
           $stmt->bindValue(':description', $description, PDO::PARAM_STR);
           $stmt->bindValue(':image', $image_name, PDO::PARAM_STR);
-          $stmt->bindValue(':video', ' ', PDO::PARAM_STR);
 
           // Execute the SQL statement
           $stmt->execute();
@@ -150,9 +143,6 @@ function guidv4($data = null) {
 
           <label for="image">Image:</label>
           <input type="file" name="files" id="files">
-
-          <label for="video">Video:</label>
-          <input type="file" name="video" id="video">
 
           <input type="submit" name="submit" value="Submit">
         </form>
