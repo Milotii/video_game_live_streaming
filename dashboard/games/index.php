@@ -39,6 +39,19 @@
    ?>
       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
           <a href="../game/addvideos.php?id=<?php echo $row['id']; ?>"><img src="../../images/<?php echo $row['image']; ?>"></a>
+          <style> a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+img {
+  width: 270px;
+  height: 270px;
+  border-radius: 0%;
+  object-fit: cover;
+}
+
+ </style>
   <?php
   }?>
      </div>

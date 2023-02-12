@@ -118,6 +118,43 @@ $row = mysqli_fetch_assoc($result);
       border: none;
       cursor: pointer;
     }
+
+    .home-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .overview-boxes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+    }
+
+    img {
+      width: 500px;
+      height: 300px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    label,
+    input[type="submit"] {
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 
