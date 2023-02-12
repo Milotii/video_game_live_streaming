@@ -108,8 +108,7 @@ function guidv4($data = null) {
       color: white;
       border: none;
       cursor: pointer;
-    }
-    
+    }    
   </style>
 </head>
 

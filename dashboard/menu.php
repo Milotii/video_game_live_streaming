@@ -40,7 +40,7 @@ a.logo-link:hover {
         <li>
             <a href="/VideoLiveStreaming/dashboard/users.php">
                 <i class='bx bx-user'></i>
-                <span class="links_name">Total Users</span>
+                <span class="links_name">Users</span>
             </a>
         </li>
         </li>

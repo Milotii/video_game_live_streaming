@@ -115,12 +115,16 @@
   <h3 id="categories">Categories</h3>
   <br>
   <div class="container">
-    <a href="../csgo/csgo.php"><img src="csgo-breaks-record-for-highest-player-count-all-time.jpg"></a>
-    <a href="../gta/gta.php"><img src="capsule_616x353 (1).jpg"></a>
-    <a href="../fortnite/fortnite.php"><img src="14br-consoles-1920x1080-wlogo-1920x1080-432974386.jpg"></a>
-    <a href="../CallOfDuty/callofduty.php"><img src="capsule_616x353 (2).jpg"></a>
-    <a href="../fifa/fifa.php"><img src="unnamed.png"></a>
-    <a href="../Dota2/dota2.php"><img src="dota2_social.jpg"></a>
+  <?php 
+       include '../database/database.php';
+       $b = new database();
+       $b->select("categories","*");
+       $result = $b->sql;
+   ?>
+      <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+          <a href="../game/index.php?id=<?php echo $row['id']; ?>"><img src="../images/<?php echo $row['image']; ?>"></a>
+  <?php
+  }?>
   </div>
   </div>
   <br>
