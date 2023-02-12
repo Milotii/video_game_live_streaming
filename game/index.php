@@ -91,27 +91,34 @@ $row = mysqli_fetch_assoc($result);
     <h3>
         <?php echo $row['name']; ?> Clips
     </h3>
-    <video width="400px" height="263px" controls="controls" />
 
-    <source src="117889605_329937131691881_3521263818198931672_n.mp4" type="video/mp4">
+    <?php
+    $b->select("gameVideos", "*");
+    $result = $b->sql;
+    ?>
+    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+        <video width="400px" height="263px" controls="controls">
+            <source src="../images/<?php echo $row['video']; ?>" type="video/mp4">
+        </video>
+    <?php
+    } ?>
+
+    <!-- <video width="400px" height="263px" controls="controls">
+
+        <source src="9oxYxhlmXfvfO7Ua2E7rgA.mp4" type="video/mp4">
     </video>
+    <video width="400px" height="263px" controls="controls">
 
-    <video width="400px" height="263px" controls="controls" />
-
-    <source src="9oxYxhlmXfvfO7Ua2E7rgA.mp4" type="video/mp4">
+        <source src="UaCAN_sTPRtiQWP3dQMKfg.mp4" type="video/mp4">
     </video>
-    <video width="400px" height="263px" controls="controls" />
+    <video width="400px" height="263px" controls="controls">
 
-    <source src="UaCAN_sTPRtiQWP3dQMKfg.mp4" type="video/mp4">
+        <source src="TGIaw4D7rSwZvqodir0zRQ.mp4" type="video/mp4">
     </video>
-    <video width="400px" height="263px" controls="controls" />
+    <video width="400px" height="263px" controls="controls">
 
-    <source src="TGIaw4D7rSwZvqodir0zRQ.mp4" type="video/mp4">
-    </video>
-    <video width="400px" height="263px" controls="controls" />
-
-    <source src="dt45F_7lRNQ31Ld1W4wR_g.mp4" type="video/mp4">
-    </video>
+        <source src="dt45F_7lRNQ31Ld1W4wR_g.mp4" type="video/mp4">
+    </video> -->
 </body>
 
 </html>

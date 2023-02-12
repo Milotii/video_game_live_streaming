@@ -17,27 +17,31 @@ $target_dir = "../../images/";
 $uOk = 1;
 
 if (isset($_POST["submit"])) {
-  $name = $_POST['name'];
+  $gameId = $_GET['id'];
   $description = $_POST['description'];
 
-  // Check if $uOk is set to 0 
-  if ($uOk == 0) {
-    echo "Your file was not uploaded.<br>";
-  }
+  // Count # of uploaded files in array
+  $total = count($_FILES['files']['name']);
 
-  // if uOk=1 then try to upload file
-  else {
-    if (strlen($_FILES['files']['name']) > 1) {
-      $image_name = guidv4() . "_" . basename($_FILES["files"]["name"]);
-      $target_file = $target_dir . $image_name;
-      if (move_uploaded_file($_FILES['files']['tmp_name'], $target_file)) {
+  // Loop through each file
+  for ($i = 0; $i < $total; $i++) {
+
+    //Get the temp file path
+    $tmpFilePath = $_FILES['files']['tmp_name'][$i];
+
+    //Make sure we have a file path
+    if ($tmpFilePath != "") {
+      $video_name = guidv4() . "_" . basename($_FILES["files"]["name"][$i]);
+      $target_file = $target_dir . $video_name;
+      if (move_uploaded_file($_FILES['files']['tmp_name'][$i], $target_file)) {
         // Insert data into the categories table
         try {
           // Prepare the SQL statement
-          $stmt = $con->prepare("INSERT INTO categories (name, description, image) VALUES (:name, :description, :image)");
+          $stmt = $con->prepare("INSERT INTO gameVideos (gameId, video) VALUES (:gameId, :video)");
 
           // Bind the values to the placeholders in the SQL statement
-          $stmt->bindValue(':image', $image_name, PDO::PARAM_STR);
+          $stmt->bindValue(':gameId', $gameId, PDO::PARAM_INT);
+          $stmt->bindValue(':video', $video_name, PDO::PARAM_STR);
 
           // Execute the SQL statement
           $stmt->execute();
@@ -45,7 +49,7 @@ if (isset($_POST["submit"])) {
           $error_message = $e->getMessage();
           echo "<script>alert('$error_message');</script>";
         }
-        echo "<script>alert('Category addedd successfully!');</script>";
+        echo "<script>alert('Videos addedd successfully!');</script>";
       } else {
         echo "<script>alert('Something went wrong, please try again!!');</script>";
       }
@@ -53,7 +57,8 @@ if (isset($_POST["submit"])) {
   }
 }
 
-function guidv4($data = null) {
+function guidv4($data = null)
+{
   // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
   $data = $data ?? random_bytes(16);
   assert(strlen($data) == 16);
@@ -112,7 +117,7 @@ $row = mysqli_fetch_assoc($result);
       color: white;
       border: none;
       cursor: pointer;
-    }    
+    }
   </style>
 </head>
 
@@ -138,18 +143,18 @@ $row = mysqli_fetch_assoc($result);
     </nav>
     <div class="home-content">
       <div class="overview-boxes">
-      <div class="content">
-        <img src="../../images/<?php echo $row['image']; ?>" alt="">
-        <h3>
+        <div class="content">
+          <img src="../../images/<?php echo $row['image']; ?>" alt="">
+          <h3>
             <?php echo $row['name']; ?>
-        </h3>
+          </h3>
 
-        <form action="" method="post" enctype="multipart/form-data">
-          <label for="image">Videos:</label>
-          <input type="file" name="files" id="files" multiple>
-          <input type="submit" name="submit" value="Submit">
-        </form>
-    </div>
+          <form action="" method="post" enctype="multipart/form-data">
+            <label for="image">Videos:</label>
+            <input type="file" name="files[]" id="files" multiple>
+            <input type="submit" name="submit" value="Submit">
+          </form>
+        </div>
   </section>
 
   <script>
