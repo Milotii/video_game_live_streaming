@@ -312,3 +312,11 @@ body {
 .footer ul a:hover {
   opacity: 1;
 }
+a[href="../dashboard/dashboard.php"] {
+  color: #0073e6;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+

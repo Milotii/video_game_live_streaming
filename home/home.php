@@ -1,16 +1,38 @@
 <?php 
   session_start(); 
-
+  
   if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: ../login/login.php');
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../login/login.php');
   }
   if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: ../login/login.php");
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: ../login/login.php");
+  }
+  
+  // Connect to the database
+  $db = mysqli_connect('localhost', 'root', '', 'videogamelivestreaming_db');
+
+  // Get the username from the session
+  $username = $_SESSION['username'];
+
+  // Query the database to get the user's role
+  $query = "SELECT role FROM users WHERE username='$username'";
+  $result = mysqli_query($db, $query);
+  $user = mysqli_fetch_assoc($result);
+
+  // Store the user's role in a session variable
+  $_SESSION['role'] = $user['role'];
+
+  // Check if the user is an admin
+  if ($_SESSION['role'] == 'admin') {
+    // Show admin-only content
+  } else {
+    // Show regular user content
   }
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -42,11 +64,12 @@
           <div id='button-holder'>
             <img src='search1.png' />
           </div>
-          <i class="fa fa-search"></i>
+          <i class="fa fa-search"></i> <br>
         </button>
       </div>
     </div>
-    <a href="../login/login.php" class="log-in">Log In</a>
+    <br>
+
     <br>
     <div class="content">
   	<!-- notification message -->
@@ -60,6 +83,14 @@
       	</h3>
       </div>
   	<?php endif ?>
+    <a href="../dashboard/dashboard.php" 
+  <?php if ($_SESSION['role'] === "admin" ): ?>
+    style="display:block" 
+  <?php else: ?>
+    style="display:none"
+  <?php endif; ?>
+>Dashboard</a> 
+
 
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>

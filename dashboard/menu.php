@@ -1,7 +1,22 @@
 <div class="sidebar">
     <div class="logo-details">
         <i class=''></i>
-        <span class="logo_name">epicStream</span>
+        <a href="../home/home.php" class="logo-link">
+  <span class="logo_name">epicStream</span>
+</a>
+<style> a.logo-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+a.logo-link:hover {
+  color: #0073e6;
+  text-decoration: none;
+}
+</style>
     </div>
     <ul class="nav-links">
         <li>
@@ -14,6 +29,18 @@
             <a href="/VideoLiveStreaming/dashboard/game/add.php">
                 <i class='bx bx-box'></i>
                 <span class="links_name">Add Game Category</span>
+            </a>
+        </li>
+        <li>
+            <a href="/VideoLiveStreaming/dashboard/messages.php">
+                <i class='bx bx-message'></i>
+                <span class="links_name">Messages</span>
+            </a>
+        </li>
+        <li>
+            <a href="/VideoLiveStreaming/dashboard/users.php">
+                <i class='bx bx-user'></i>
+                <span class="links_name">Total Users</span>
             </a>
         </li>
         </li>

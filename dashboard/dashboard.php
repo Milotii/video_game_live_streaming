@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
-  <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
   <link rel="stylesheet" href="dashboard.css">
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -25,8 +24,8 @@
       </div>
       <div class="profile-details">
         <!--<img src="images/profile.jpg" alt="">-->
-        <span class="admin_name">Milot Hoti</span>
-        <i class='bx bx-chevron-down'></i>
+        <span class="admin_name"></span>
+
 
       </div>
     </nav>

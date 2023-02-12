@@ -16,6 +16,7 @@ if (isset($_POST['reg_user'])) {
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
+  $role = mysqli_real_escape_string($db, $_POST['role']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -44,10 +45,10 @@ if (isset($_POST['reg_user'])) {
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-  	$password = ($password_1);//encrypt the password before saving in the database
+  	$password = ($password_1);
 
-  	$query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
+  	$query = "INSERT INTO users (username, email, password, role) 
+  			  VALUES('$username', '$email', '$password', 'user')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
@@ -68,7 +69,7 @@ if (isset($_POST['login_user'])) {
   }
 
   if (count($errors) == 0) {
-  	$password = md5($password);
+  	$password = ($password);
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
