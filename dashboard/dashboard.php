@@ -24,7 +24,7 @@
       </div>
       <div class="profile-details">
         <!--<img src="images/profile.jpg" alt="">-->
-        <span class="admin_name"></span>
+        <span class="admin_name">Miloti</span>
 
 
       </div>
@@ -46,11 +46,22 @@
           </div>
           <i class='bx bx-user cart four'></i>
         </div>
+              <?php
+                $sql = "SELECT COUNT(*) as count FROM categories";
+        $result = mysqli_query($conn, $sql);
 
-        <div class="box">
+        if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+                $count = $row["count"];
+            }
+        } else {
+            echo "0 results";
+        }
+        ?>
+              <div class="box">
           <div class="right-side">
             <div class="box-topic">Game Categories</div>
-            <div class="number">6</div>
+            <div class="number"><?php echo $count; ?></div>
           </div>
           <i class='bx bx-category cart two'></i>
         </div>
