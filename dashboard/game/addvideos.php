@@ -143,12 +143,13 @@ $row = mysqli_fetch_assoc($result);
         <h3>
             <?php echo $row['name']; ?>
         </h3>
-    </div>
+
         <form action="" method="post" enctype="multipart/form-data">
           <label for="image">Videos:</label>
           <input type="file" name="files" id="files" multiple>
           <input type="submit" name="submit" value="Submit">
         </form>
+    </div>
   </section>
 
   <script>

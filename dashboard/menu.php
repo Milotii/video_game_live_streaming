@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="logo-details">
         <i class=''></i>
-        <a href="../home/home.php" class="logo-link">
+        <a href="/VideoLiveStreaming/home/home.php" class="logo-link">
   <span class="logo_name">epicStream</span>
 </a>
 <style> a.logo-link {
@@ -23,6 +23,12 @@ a.logo-link:hover {
             <a href="/VideoLiveStreaming/dashboard/dashboard.php" class="active">
                 <i class='bx bx-grid-alt'></i>
                 <span class="links_name">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="/VideoLiveStreaming/dashboard/games/index.php">
+                <i class='bx bx-box'></i>
+                <span class="links_name">Games</span>
             </a>
         </li>
         <li>
