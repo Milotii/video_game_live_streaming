@@ -18,7 +18,6 @@ $uOk = 1;
 
 if (isset($_POST["submit"])) {
   $gameId = $_GET['id'];
-  $description = $_POST['description'];
 
   // Count # of uploaded files in array
   $total = count($_FILES['files']['name']);
@@ -173,7 +172,7 @@ $row = mysqli_fetch_assoc($result);
       </div>
       <div class="profile-details">
         <!--<img src="images/profile.jpg" alt="">-->
-        <span class="admin_name">Milot Hoti</span>
+        <span class="admin_name">Miloti</span>
         <i class='bx bx-chevron-down'></i>
 
       </div>

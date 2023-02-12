@@ -80,20 +80,44 @@ $row = mysqli_fetch_assoc($result);
     </header>
     <br>
     <div class="content">
-        <img src="csgo2.jpg" alt="">
+        <img src="../images/<?php echo $row['image']; ?>" alt="">
         <h3>
-            <?php echo $row['name']; ?>
+  
         </h3>
         <p>
             <?php echo $row['description']; ?>
         </p>
     </div>
+    <style>
+    .content {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.content img {
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+.content h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 170px;
+}
+
+.content p {
+  font-size: 15px;
+}
+
+ </style>
     <h3>
         <?php echo $row['name']; ?> Clips
     </h3>
 
     <?php
-    $b->select("gameVideos", "*");
+    $b->select("gameVideos", "*", "gameId='$id'");
     $result = $b->sql;
     ?>
     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -102,23 +126,6 @@ $row = mysqli_fetch_assoc($result);
         </video>
     <?php
     } ?>
-
-    <!-- <video width="400px" height="263px" controls="controls">
-
-        <source src="9oxYxhlmXfvfO7Ua2E7rgA.mp4" type="video/mp4">
-    </video>
-    <video width="400px" height="263px" controls="controls">
-
-        <source src="UaCAN_sTPRtiQWP3dQMKfg.mp4" type="video/mp4">
-    </video>
-    <video width="400px" height="263px" controls="controls">
-
-        <source src="TGIaw4D7rSwZvqodir0zRQ.mp4" type="video/mp4">
-    </video>
-    <video width="400px" height="263px" controls="controls">
-
-        <source src="dt45F_7lRNQ31Ld1W4wR_g.mp4" type="video/mp4">
-    </video> -->
 </body>
 
 </html>
