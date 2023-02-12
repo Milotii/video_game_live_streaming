@@ -140,6 +140,7 @@ $row = mysqli_fetch_assoc($result);
       <div class="overview-boxes">
       <div class="content">
         <img src="../../images/<?php echo $row['image']; ?>" alt="">
+      
         <h3>
             <?php echo $row['name']; ?>
         </h3>
@@ -150,6 +151,45 @@ $row = mysqli_fetch_assoc($result);
           <input type="submit" name="submit" value="Submit">
         </form>
     </div>
+     <style>
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.overview-boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+img {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+label, input[type="submit"] {
+  margin-bottom: 10px;
+}
+
+
+     </style>
   </section>
 
   <script>
